@@ -173,7 +173,7 @@ export function PerfectDaySection() {
                 <button
                   onClick={goBack}
                   disabled={step === 0}
-                  className={`flex items-center gap-1 text-sm px-4 py-2 rounded-full transition-all cursor-pointer ${
+                  className={`flex items-center gap-1 text-sm px-4 min-h-[44px] rounded-full transition-all cursor-pointer ${
                     step === 0
                       ? 'text-warm-gray/40 cursor-not-allowed'
                       : 'text-burgundy-light hover:bg-blush-light/50'
@@ -184,7 +184,7 @@ export function PerfectDaySection() {
                 <button
                   onClick={goNext}
                   disabled={!selected}
-                  className={`flex items-center gap-1 text-sm px-5 py-2 rounded-full transition-all cursor-pointer ${
+                  className={`flex items-center gap-1 text-sm px-5 min-h-[44px] rounded-full transition-all cursor-pointer ${
                     selected
                       ? 'bg-rose-muted/20 text-burgundy hover:bg-rose-muted/30'
                       : 'bg-blush-light/30 text-warm-gray/50 cursor-not-allowed'
@@ -254,7 +254,7 @@ export function PerfectDaySection() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <button
                   onClick={savePlan}
-                  className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm transition-all cursor-pointer ${
+                  className={`flex items-center gap-2 px-5 min-h-[44px] rounded-full text-sm transition-all cursor-pointer ${
                     saved
                       ? 'bg-rose-muted/20 text-burgundy'
                       : 'bg-blush-light border border-blush/40 text-burgundy hover:bg-blush/40'
@@ -268,7 +268,7 @@ export function PerfectDaySection() {
                 </button>
                 <button
                   onClick={copyPlan}
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm text-burgundy-light hover:bg-blush-light/50 transition-all cursor-pointer"
+                  className="flex items-center gap-2 px-4 min-h-[44px] rounded-full text-sm text-burgundy-light hover:bg-blush-light/50 transition-all cursor-pointer"
                 >
                   <Copy size={14} />
                   {copied ? 'Copied!' : 'Copy our plan'}
@@ -278,7 +278,7 @@ export function PerfectDaySection() {
               <div className="flex items-center justify-center mt-4">
                 <button
                   onClick={reset}
-                  className="text-xs text-warm-gray hover:text-burgundy-light transition-colors cursor-pointer"
+                  className="text-xs text-warm-gray hover:text-burgundy-light transition-colors cursor-pointer min-h-[44px] px-4"
                 >
                   Plan another one
                 </button>

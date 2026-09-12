@@ -21,7 +21,7 @@ export function HiddenSurprise() {
       <button
         onClick={handleTap}
         aria-label="A tiny heart"
-        className="text-blush hover:text-rose-muted transition-colors cursor-pointer inline-block"
+        className="w-11 h-11 inline-flex items-center justify-center text-blush hover:text-rose-muted transition-colors cursor-pointer"
       >
         <Heart size={14} fill={filled ? 'currentColor' : 'none'} />
       </button>

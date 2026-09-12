@@ -56,7 +56,8 @@ export function MusicToggle() {
         exit={{ opacity: 0, scale: 0.8 }}
         onClick={toggle}
         aria-label={playing ? 'Pause background music' : 'Play background music'}
-        className="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full bg-warm-white/80 backdrop-blur-sm border border-blush shadow-lg flex items-center justify-center text-burgundy-light hover:bg-blush-light transition-colors cursor-pointer"
+        className="fixed z-50 w-11 h-11 rounded-full bg-warm-white/80 backdrop-blur-sm border border-blush shadow-lg flex items-center justify-center text-burgundy-light hover:bg-blush-light transition-colors cursor-pointer"
+        style={{ bottom: 'max(1.5rem, env(safe-area-inset-bottom, 0px))', right: '1.5rem' }}
       >
         {playing ? <Volume2 size={18} /> : <VolumeX size={18} />}
       </motion.button>

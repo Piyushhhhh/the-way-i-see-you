@@ -52,7 +52,7 @@ export function ReasonToSmileSection() {
         whileHover={{ scale: 1.04 }}
         whileTap={{ scale: 0.95 }}
         onClick={reveal}
-        className="inline-flex items-center gap-2 px-7 py-3 rounded-full border border-blush bg-warm-white text-burgundy-light font-sans text-sm tracking-wide hover:bg-blush-light transition-colors cursor-pointer"
+        className="inline-flex items-center gap-2 px-7 py-3 min-h-[44px] rounded-full border border-blush bg-warm-white text-burgundy-light font-sans text-sm tracking-wide hover:bg-blush-light transition-colors cursor-pointer"
       >
         <Sparkles size={16} className="text-rose-muted" />
         Tap whenever you need a reason to smile

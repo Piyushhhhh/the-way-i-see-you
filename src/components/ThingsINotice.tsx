@@ -97,7 +97,7 @@ export function ThingsINoticeSection() {
           onClick={() => goTo(page - 1)}
           aria-label="Previous"
           disabled={page === 0}
-          className={`hidden sm:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-warm-white/90 border border-blush/50 shadow-md items-center justify-center text-burgundy-light hover:bg-blush-light transition-all cursor-pointer ${
+          className={`hidden sm:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-warm-white/90 border border-blush/50 shadow-md items-center justify-center text-burgundy-light hover:bg-blush-light transition-all cursor-pointer ${
             page === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100'
           }`}
         >
@@ -109,7 +109,7 @@ export function ThingsINoticeSection() {
           onClick={() => goTo(page + 1)}
           aria-label="Next"
           disabled={page === totalPages - 1}
-          className={`hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-warm-white/90 border border-blush/50 shadow-md items-center justify-center text-burgundy-light hover:bg-blush-light transition-all cursor-pointer ${
+          className={`hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-warm-white/90 border border-blush/50 shadow-md items-center justify-center text-burgundy-light hover:bg-blush-light transition-all cursor-pointer ${
             page === totalPages - 1 ? 'opacity-0 pointer-events-none' : 'opacity-100'
           }`}
         >
@@ -120,6 +120,7 @@ export function ThingsINoticeSection() {
         <div
           ref={viewportRef}
           className="overflow-hidden rounded-xl"
+          style={{ touchAction: 'pan-y' }}
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
@@ -150,18 +151,20 @@ export function ThingsINoticeSection() {
 
         {/* Pagination: dots for desktop/tablet, counter for mobile */}
         {cardsPerPage > 1 ? (
-          <div className="flex justify-center gap-2 mt-4">
+          <div className="flex justify-center mt-2">
             {Array.from({ length: totalPages }).map((_, i) => (
               <button
                 key={i}
                 onClick={() => goTo(i)}
                 aria-label={`Page ${i + 1}`}
-                className={`rounded-full transition-all cursor-pointer ${
+                className="w-11 h-11 flex items-center justify-center cursor-pointer"
+              >
+                <span className={`block rounded-full transition-all ${
                   i === page
                     ? 'w-2.5 h-2.5 bg-rose-muted'
                     : 'w-2 h-2 bg-blush/60 hover:bg-blush'
-                }`}
-              />
+                }`} />
+              </button>
             ))}
           </div>
         ) : (

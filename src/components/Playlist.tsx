@@ -59,16 +59,18 @@ export function PlaylistSection() {
               </p>
             </div>
 
-            <div className="flex gap-2 flex-shrink-0">
+            <div className="flex flex-shrink-0">
               {song.spotifyUrl && (
                 <a
                   href={song.spotifyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Listen to ${song.title} on Spotify`}
-                  className="w-8 h-8 rounded-full bg-blush-light flex items-center justify-center text-burgundy-light hover:bg-blush transition-colors"
+                  className="w-11 h-11 flex items-center justify-center"
                 >
-                  <ExternalLink size={14} />
+                  <span className="w-8 h-8 rounded-full bg-blush-light flex items-center justify-center text-burgundy-light hover:bg-blush transition-colors">
+                    <ExternalLink size={14} />
+                  </span>
                 </a>
               )}
               {song.youtubeUrl && (
@@ -77,9 +79,11 @@ export function PlaylistSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Watch ${song.title} on YouTube`}
-                  className="w-8 h-8 rounded-full bg-blush-light flex items-center justify-center text-burgundy-light hover:bg-blush transition-colors"
+                  className="w-11 h-11 flex items-center justify-center"
                 >
-                  <ExternalLink size={14} />
+                  <span className="w-8 h-8 rounded-full bg-blush-light flex items-center justify-center text-burgundy-light hover:bg-blush transition-colors">
+                    <ExternalLink size={14} />
+                  </span>
                 </a>
               )}
             </div>

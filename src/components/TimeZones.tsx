@@ -62,7 +62,11 @@ function AnalogClock({ timezone, label }: { timezone: string; label: string }) {
 
   return (
     <div className="flex flex-col items-center gap-3">
-      <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-full border-2 border-blush bg-warm-white/60 backdrop-blur-sm shadow-md">
+      {/* Clock face uses clamp: min 110px at 320px, up to 176px on md+ */}
+      <div
+        className="relative rounded-full border-2 border-blush bg-warm-white/60 backdrop-blur-sm shadow-md aspect-square"
+        style={{ width: 'clamp(110px, 28vw, 144px)' }}
+      >
         {markers.map(i => (
           <div
             key={i}
@@ -110,7 +114,7 @@ export function TimeZonesSection() {
   return (
     <SectionWrapper id="time-zones" className="!pt-6 md:!pt-8 !pb-6 md:!pb-8">
       <div className="flex flex-col items-center gap-8">
-        <div className="flex flex-row items-start justify-center gap-10 md:gap-20">
+        <div className="flex flex-row items-start justify-center gap-6 sm:gap-10 md:gap-20">
           {timeZones.zones.map((z) => (
             <AnalogClock key={z.timezone} timezone={z.timezone} label={z.label} />
           ))}
