@@ -1,9 +1,9 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   CalendarHeart, Bed, Sunrise, Coffee, Waves, Mountain, Building2, Home,
   Flame, Utensils, Wine, Cake, Footprints, Film, MessageCircle, Music,
-  Star, Car, Moon, Sparkles, ChevronLeft, ChevronRight, Check, Copy,
+  Star, Car, Moon, Sparkles, ChevronLeft, Check, Copy,
 } from 'lucide-react';
 import { perfectDay } from '../data/content';
 import { SectionWrapper } from './SectionWrapper';
@@ -17,6 +17,7 @@ const iconMap: Record<string, React.ComponentType<{ size?: number; className?: s
 };
 
 const STORAGE_KEY = 'perfect-day-plan';
+const AUTO_ADVANCE_MS = 350;
 
 function loadSaved(): string[] | null {
   try {
@@ -38,31 +39,38 @@ export function PerfectDaySection() {
   const [saved, setSaved] = useState(() => !!loadSaved());
   const [copied, setCopied] = useState(false);
   const [direction, setDirection] = useState(1);
+  const advancing = useRef(false);
 
   const totalSteps = perfectDay.questions.length;
   const current = perfectDay.questions[step];
   const selected = selections[step];
 
   const select = useCallback((label: string) => {
+    if (advancing.current) return;
+
     setSelections(prev => {
       const next = [...prev];
       next[step] = label;
       return next;
     });
     setSaved(false);
-  }, [step]);
 
-  const goNext = useCallback(() => {
-    if (step < totalSteps - 1) {
+    advancing.current = true;
+    setTimeout(() => {
       setDirection(1);
-      setStep(s => s + 1);
-    } else {
-      setShowResult(true);
-    }
+      if (step < totalSteps - 1) {
+        setStep(s => s + 1);
+      } else {
+        setShowResult(true);
+      }
+      advancing.current = false;
+    }, AUTO_ADVANCE_MS);
   }, [step, totalSteps]);
 
   const goBack = useCallback(() => {
+    if (advancing.current) return;
     if (showResult) {
+      setDirection(-1);
       setShowResult(false);
     } else if (step > 0) {
       setDirection(-1);
@@ -169,30 +177,16 @@ export function PerfectDaySection() {
                 })}
               </div>
 
-              <div className="flex items-center justify-between mt-6">
-                <button
-                  onClick={goBack}
-                  disabled={step === 0}
-                  className={`flex items-center gap-1 text-sm px-4 min-h-[44px] rounded-full transition-all cursor-pointer ${
-                    step === 0
-                      ? 'text-warm-gray/40 cursor-not-allowed'
-                      : 'text-burgundy-light hover:bg-blush-light/50'
-                  }`}
-                >
-                  <ChevronLeft size={16} /> Back
-                </button>
-                <button
-                  onClick={goNext}
-                  disabled={!selected}
-                  className={`flex items-center gap-1 text-sm px-5 min-h-[44px] rounded-full transition-all cursor-pointer ${
-                    selected
-                      ? 'bg-rose-muted/20 text-burgundy hover:bg-rose-muted/30'
-                      : 'bg-blush-light/30 text-warm-gray/50 cursor-not-allowed'
-                  }`}
-                >
-                  {step === totalSteps - 1 ? 'See our day' : 'Next'} <ChevronRight size={16} />
-                </button>
-              </div>
+              {step > 0 && (
+                <div className="flex items-center mt-6">
+                  <button
+                    onClick={goBack}
+                    className="flex items-center gap-1 text-sm px-4 min-h-[44px] rounded-full text-burgundy-light hover:bg-blush-light/50 transition-all cursor-pointer"
+                  >
+                    <ChevronLeft size={16} /> Back
+                  </button>
+                </div>
+              )}
             </motion.div>
           ) : (
             <motion.div

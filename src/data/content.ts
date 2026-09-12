@@ -234,12 +234,6 @@ export const playlist: Song[] = [
     youtubeUrl: "https://www.youtube.com/watch?v=a7fzkqLozwA",
   },
   {
-    title: "Apna Bana Le",
-    artist: "Arijit Singh",
-    note: "You started feeling familiar long before I realised I was getting attached.",
-    youtubeUrl: "https://www.youtube.com/watch?v=Wv5Ac3su5r4",
-  },
-  {
     title: "Best Part",
     artist: "Daniel Caesar ft. H.E.R.",
     note: "It's not always the big moments. Somehow the smallest parts of you stay with me the longest.",
