@@ -294,12 +294,6 @@ export const places: Place[] = [
     status: "Someday",
   },
   {
-    name: "Somewhere halfway between India and Singapore",
-    photo: "images/places/airplane.jpg",
-    note: "Splitting the distance because neither of us should always be the one flying.",
-    status: "Someday",
-  },
-  {
     name: "A long drive with no destination",
     photo: "images/places/road.jpg",
     note: "Windows down, music loud, and nowhere we have to be.",
