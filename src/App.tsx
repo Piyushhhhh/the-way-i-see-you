@@ -10,6 +10,7 @@ import { TimelineSection } from './components/Timeline';
 import { OpenWhenLettersSection } from './components/OpenWhenLetters';
 import { PlaylistSection } from './components/Playlist';
 import { PlacesToGoSection } from './components/PlacesToGo';
+import { PerfectDaySection } from './components/PerfectDayGame';
 import { ReasonToSmileSection } from './components/ReasonToSmile';
 import { FinalSection } from './components/FinalSection';
 import { useReducedMotion } from './hooks/useReducedMotion';
@@ -56,6 +57,10 @@ export default function App() {
               <SectionDivider />
 
               <PlacesToGoSection />
+
+              <SectionDivider />
+
+              <PerfectDaySection />
 
               <SectionDivider />
 

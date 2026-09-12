@@ -319,6 +319,71 @@ export const places: Place[] = [
   },
 ];
 
+// -- Plan our perfect day game ----------------------------------
+export interface PerfectDayOption {
+  label: string;
+  icon: string;
+}
+
+export interface PerfectDayQuestion {
+  question: string;
+  options: PerfectDayOption[];
+}
+
+export const perfectDay = {
+  heading: "Plan our perfect day",
+  caption: "Since we already have places to go, we might as well plan how one of those days should feel.",
+  resultTitle: "Our perfect day",
+  resultMessage: "Looks like we just planned a day worth remembering.",
+  resultNote: "Keep this. I might hold you to it.",
+  questions: [
+    {
+      question: "How should our day begin?",
+      options: [
+        { label: "Sleeping in and taking the morning slowly", icon: "bed" },
+        { label: "A sunrise walk before the world gets busy", icon: "sunrise" },
+        { label: "Breakfast somewhere quiet and cosy", icon: "coffee" },
+      ],
+    },
+    {
+      question: "Where are we disappearing to?",
+      options: [
+        { label: "Somewhere beside the sea", icon: "waves" },
+        { label: "A mountain with absolutely no signal", icon: "mountain" },
+        { label: "A city neither of us has explored before", icon: "building" },
+        { label: "A familiar place that already feels like ours", icon: "home" },
+      ],
+    },
+    {
+      question: "What are we eating?",
+      options: [
+        { label: "Something properly spicy", icon: "flame" },
+        { label: "Trying random street food together", icon: "utensils" },
+        { label: "A cosy dinner that lasts for hours", icon: "wine" },
+        { label: "Dessert first because rules can wait", icon: "cake" },
+      ],
+    },
+    {
+      question: "How are we spending the evening?",
+      options: [
+        { label: "A long walk with nowhere to rush", icon: "footprints" },
+        { label: "A movie and staying comfortably close", icon: "film" },
+        { label: "Sitting somewhere beautiful and talking", icon: "messageCircle" },
+        { label: "Music, teasing and complete nonsense", icon: "music" },
+      ],
+    },
+    {
+      question: "How should the day end?",
+      options: [
+        { label: "Looking at the stars", icon: "star" },
+        { label: "A late-night drive with our playlist", icon: "car" },
+        { label: "Staying awake and talking until one of us falls asleep", icon: "moon" },
+        { label: "Not planning the ending at all", icon: "sparkles" },
+      ],
+    },
+  ] as PerfectDayQuestion[],
+};
+
 // -- A reason to smile ----------------------------------------
 // REPLACE WITH YOUR OWN MESSAGES
 export const smileReasons: string[] = [
