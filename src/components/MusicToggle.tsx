@@ -6,7 +6,7 @@ import { musicPath } from '../data/content';
 
 export function MusicToggle() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [musicPref, setMusicPref] = useLocalStorage('music-enabled', false);
+  const [musicPref, setMusicPref] = useLocalStorage('music-enabled', true);
   const [playing, setPlaying] = useState(false);
   const [available, setAvailable] = useState(false);
 
