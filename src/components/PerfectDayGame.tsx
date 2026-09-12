@@ -243,6 +243,9 @@ export function PerfectDaySection() {
                 <p className="font-handwritten text-base text-warm-gray mt-2">
                   {perfectDay.resultNote}
                 </p>
+                <p className="font-handwritten text-base md:text-lg text-rose-muted mt-4">
+                  {perfectDay.resultCta}
+                </p>
               </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

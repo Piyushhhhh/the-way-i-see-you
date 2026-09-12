@@ -66,12 +66,25 @@ export function TimelineSection() {
               )}
 
               {moment.image && (
-                <img
-                  src={`${base}${moment.image}`}
-                  alt=""
-                  className="w-full h-40 object-cover rounded-xl mt-4"
-                  loading="lazy"
-                />
+                <figure className={`mt-4 ${moment.imageLayout === 'portrait' ? 'flex flex-col items-center' : ''}`}>
+                  <img
+                    src={`${base}${moment.image}`}
+                    alt={moment.imageAlt || ''}
+                    loading="lazy"
+                    decoding="async"
+                    className={`rounded-xl border border-blush/40 shadow-sm ${
+                      moment.imageLayout === 'portrait'
+                        ? 'w-auto max-w-full object-contain'
+                        : 'w-full object-cover'
+                    }`}
+                    style={moment.imageLayout === 'portrait' ? { maxHeight: 400 } : undefined}
+                  />
+                  {moment.imageCaption && (
+                    <figcaption className="text-xs text-warm-gray text-center mt-2 leading-relaxed">
+                      {moment.imageCaption}
+                    </figcaption>
+                  )}
+                </figure>
               )}
             </div>
           </motion.div>

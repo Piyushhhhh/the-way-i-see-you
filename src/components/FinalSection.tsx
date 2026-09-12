@@ -22,6 +22,16 @@ export function FinalSection() {
           <p className="font-handwritten text-xl text-warm-gray whitespace-pre-line">
             {closing.signature}
           </p>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="font-serif text-sm text-warm-gray mt-8"
+          >
+            {closing.returnMessage}
+          </motion.p>
         </motion.div>
       </SectionWrapper>
 

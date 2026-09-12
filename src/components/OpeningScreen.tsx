@@ -27,6 +27,14 @@ export function OpeningScreen({ onEnter, visible }: Props) {
             transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
             className="text-center max-w-lg"
           >
+            <motion.p
+              initial={reduced ? undefined : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
+              className="font-handwritten text-lg md:text-xl text-rose-muted mb-4"
+            >
+              {opening.dedication}
+            </motion.p>
             <p className="font-serif text-2xl md:text-3xl lg:text-4xl text-burgundy leading-snug tracking-tight mb-10">
               {opening.headline}
             </p>

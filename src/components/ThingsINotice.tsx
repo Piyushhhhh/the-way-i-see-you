@@ -91,32 +91,31 @@ export function ThingsINoticeSection() {
         <p className="text-sm text-warm-gray text-center sm:hidden">Swipe to see more</p>
       </div>
 
-      <div className="relative max-w-5xl mx-auto px-5 sm:px-14">
-        {/* Previous button */}
-        <button
-          onClick={() => goTo(page - 1)}
-          aria-label="Previous"
-          disabled={page === 0}
-          className={`hidden sm:flex absolute left-2 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-warm-white/90 border border-blush/50 shadow-md items-center justify-center text-burgundy-light hover:bg-blush-light transition-all cursor-pointer ${
-            page === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100'
-          }`}
-        >
-          <ChevronLeft size={20} />
-        </button>
+      <div className="max-w-5xl mx-auto px-5 sm:px-14">
+        {/* Carousel viewport + arrows wrapper */}
+        <div className="relative">
+          <button
+            onClick={() => goTo(page - 1)}
+            aria-label="Previous"
+            disabled={page === 0}
+            className={`hidden sm:flex absolute -left-12 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-warm-white/90 border border-blush/50 shadow-md items-center justify-center text-burgundy-light hover:bg-blush-light transition-all cursor-pointer ${
+              page === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100'
+            }`}
+          >
+            <ChevronLeft size={20} />
+          </button>
 
-        {/* Next button */}
-        <button
-          onClick={() => goTo(page + 1)}
-          aria-label="Next"
-          disabled={page === totalPages - 1}
-          className={`hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-warm-white/90 border border-blush/50 shadow-md items-center justify-center text-burgundy-light hover:bg-blush-light transition-all cursor-pointer ${
-            page === totalPages - 1 ? 'opacity-0 pointer-events-none' : 'opacity-100'
-          }`}
-        >
-          <ChevronRight size={20} />
-        </button>
+          <button
+            onClick={() => goTo(page + 1)}
+            aria-label="Next"
+            disabled={page === totalPages - 1}
+            className={`hidden sm:flex absolute -right-12 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-warm-white/90 border border-blush/50 shadow-md items-center justify-center text-burgundy-light hover:bg-blush-light transition-all cursor-pointer ${
+              page === totalPages - 1 ? 'opacity-0 pointer-events-none' : 'opacity-100'
+            }`}
+          >
+            <ChevronRight size={20} />
+          </button>
 
-        {/* Carousel viewport */}
         <div
           ref={viewportRef}
           className="overflow-hidden rounded-xl"
@@ -147,6 +146,7 @@ export function ThingsINoticeSection() {
               </motion.div>
             ))}
           </motion.div>
+        </div>
         </div>
 
         {/* Pagination: dots for desktop/tablet, counter for mobile */}

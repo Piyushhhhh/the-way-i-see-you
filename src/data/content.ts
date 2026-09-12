@@ -6,6 +6,7 @@
 
 // -- Opening screen ------------------------------------------
 export const opening = {
+  dedication: "For Pema",
   headline: "I wanted to make you something no one else could send you.",
   buttonText: "Come inside",
 };
@@ -47,7 +48,10 @@ export interface TimelineMoment {
   title: string;
   quote: string;
   description: string;
-  image?: string; // path relative to public/, e.g. "images/moment1.jpg"
+  image?: string;
+  imageAlt?: string;
+  imageCaption?: string;
+  imageLayout?: "portrait" | "landscape";
   location?: string;
   isClosing?: boolean;
 }
@@ -66,6 +70,10 @@ export const timeline: TimelineMoment[] = [
     quote: "We graduated and went our separate ways, but somehow you never completely disappeared from my life.",
     description:
       "College ended in 2018. Life moved on, everyone got busy, and things changed. We weren't talking all the time, but you were still somewhere in the background of my life.",
+    image: "images/timeline/college-memory.jpg",
+    imageAlt: "Group photo from college with classmates in a classroom",
+    imageCaption: "One of those college pictures that felt ordinary then and means a little more now.",
+    imageLayout: "landscape",
   },
   {
     date: "2020",
@@ -73,6 +81,10 @@ export const timeline: TimelineMoment[] = [
     quote: "The whole world stopped, and somehow we started talking more.",
     description:
       "We were both stuck at home, everything outside felt paused, and that's when our conversations really started growing. What began casually slowly became longer calls, more random messages, more sharing, more knowing each other properly.",
+    image: "images/timeline/covid-pema.jpg",
+    imageAlt: "Pema smiling and holding a bowl of food during lockdown",
+    imageCaption: "Somewhere in those strange, quiet months, I started seeing you differently.",
+    imageLayout: "portrait",
   },
   {
     date: "During lockdown",
@@ -330,6 +342,7 @@ export const perfectDay = {
   resultTitle: "Our perfect day",
   resultMessage: "Looks like we just planned a day worth remembering.",
   resultNote: "Keep this. I might hold you to it.",
+  resultCta: "Screenshot this and send it to me. I'll handle the rest.",
   questions: [
     {
       question: "How should our day begin?",
@@ -407,6 +420,7 @@ export const hiddenSurprise = {
 export const closing = {
   message: "This page isn't finished. I'm hoping we still have plenty left to add.",
   signature: "With love,\nPiyush",
+  returnMessage: "Come back whenever you need reminding of how I see you.",
 };
 
 // -- Music (optional) -----------------------------------------
