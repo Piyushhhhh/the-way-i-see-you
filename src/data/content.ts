@@ -289,6 +289,7 @@ export const places: Place[] = [
   },
   {
     name: "Back to our college",
+    photo: "images/places/college.jpg",
     note: "Where it all started without either of us knowing.",
     status: "Someday",
   },
